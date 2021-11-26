@@ -15,8 +15,8 @@ exports.getAllPosts = async (req, res, next) => {
 exports.addNewPost = async (req, res, next) => {
     try{
         const { post } = req.body;
-        const newPost = await Post.create({...post, user_id: req.userId});
 
+        const newPost = await Post.create({...post, user_id: req.userId});
         res.status(200).json({post: newPost, message: "Post successfully added."});
     }catch(error){
         return res.status(500).json({message: "There is an issue."});

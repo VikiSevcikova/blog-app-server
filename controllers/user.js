@@ -1,7 +1,6 @@
 const User = require("../models/User");
 
 exports.currentUser = async (req, res, next) => {
-    console.log("currentUser", req.userId);
     try{
         const user = await User.findById(req.userId);
         if(!user){
